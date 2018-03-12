@@ -1,0 +1,34 @@
+# Backup settings for AWS-S3-Backup.ps1
+# Author: Nathan Przybyszewski <github.com/shibz>
+# Date: 2018-03-11
+#
+# Copy the backup_settings.template.txt file to a new file and rename
+# it to "backup_settings.txt".  It must sit in the same directory as
+# your AWS-S3-Backup.ps1 file.  Configure the values below as desired.
+
+# Local Backup Directory.  Subdirectories will be created for each backup
+# using the "name" specified with the Backup-Files command.
+LocalBackupDir=C:\Backups
+
+# Number of days to retain local backups
+LocalBackupRetention=30
+
+# Name of the event log source to use.  The log source will need to be
+# initiated using the following cmdlet (executed as an administrator)
+# New-EventLog –LogName Application –Source "YourBackupSourceName"
+LogSource=S3Backup
+
+# Password used to encrypt archives
+EncryptionPassword=some encryption password here
+
+# S3 Configuration
+S3Bucket=your.s3.bucket.name
+S3Region=us-east-1
+AccessKey=AKI12345678901234567
+SecretKey=put your secret key here
+
+# Enable/disable upload to S3.  If disabled, local backups will continue.
+CloudUpload=true
+
+# Post extra debug logs
+Debug=False
